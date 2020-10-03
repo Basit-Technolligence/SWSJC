@@ -1,25 +1,20 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: "10%",
-  },
-}));
+import OutlinedCard from "./outlined-card";
 const LoginForm = () => {
-  const classes = useStyles();
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
 
   return (
-    <div className={classes.root}>
-      <Grid container justify="center" spacing={3}>
-        <Grid item xs={10} md={3}>
+    <Grid container justify="center" alignItems="center">
+      <Grid item xs={8} sm={6} md={3}>
+        <OutlinedCard padding="20px">
+          <h2 style={{ marginBottom: "20px" }} className="theme-color">
+            LOGIN
+          </h2>
           <Form
             name="normal_login"
             className="login-form"
@@ -67,15 +62,16 @@ const LoginForm = () => {
               <Button
                 type="primary"
                 htmlType="submit"
+                style={{ width: "100%" }}
                 className="login-form-button"
               >
                 Log in
               </Button>
             </Form.Item>
           </Form>
-        </Grid>
+        </OutlinedCard>
       </Grid>
-    </div>
+    </Grid>
   );
 };
 export default LoginForm;
