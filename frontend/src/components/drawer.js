@@ -19,7 +19,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import DrawerList from "./drawer-list";
 import { Route, Switch } from "react-router-dom";
 import StudentForm from "./student-form";
-
+import StudentTable from "./student-table";
+import ExpenseForm from "./expense-form";
+import ExpenseTable from "./expense-table";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -154,7 +156,9 @@ export default function DrawerLeft() {
         <div className={classes.drawerHeader} />
         <Switch>
           <Route exact path="/AddStudents" component={StudentForm} />
-          {/* <Route exact path="/ManageStudent" component={} /> */}
+          <Route exact path="/ManageStudents" component={StudentTable} />
+          <Route exact path="/AddExpenses" component={ExpenseForm} />
+          <Route exact path="/ManageExpenses" component={ExpenseTable} />
         </Switch>
       </main>
     </div>

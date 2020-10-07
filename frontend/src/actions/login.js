@@ -1,11 +1,14 @@
 import axios from "axios";
-export const login = () => {
+export const login = (login) => {
   return async (dispatch) => {
     try {
-      const response = await dispatch({
+      const response = await axios.get("//127.0.0.1:5000/login", login);
+      dispatch({
         type: "LOGIN_SUCCESS",
         payload: response.data,
       });
-    } catch (e) {}
+    } catch (e) {
+      console.log("login error occur", e);
+    }
   };
 };

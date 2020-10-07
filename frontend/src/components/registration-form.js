@@ -6,10 +6,11 @@ import Grid from "@material-ui/core/Grid";
 const RegistrationForm = (props) => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    props.action(values);
   };
   return (
     <Grid container justify="center">
-      <Grid item md={6} xs={10}>
+      <Grid item md={7} xs={10}>
         <OutlinedCard padding="40px">
           <Form
             labelCol={{
