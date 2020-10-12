@@ -8,7 +8,7 @@ const FormItem = (props) => {
         name={props.name}
         rules={[
           {
-             required: true,
+            required: true,
             message: "Required",
           },
         ]}

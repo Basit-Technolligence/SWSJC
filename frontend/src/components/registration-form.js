@@ -8,6 +8,7 @@ const RegistrationForm = (props) => {
     console.log("Received values of form: ", values);
     props.action(values);
   };
+
   return (
     <Grid container justify="center">
       <Grid item md={7} xs={10}>
