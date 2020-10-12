@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const adminController = requrie("../controllers/admin");
+const adminController = require("../controllers/admin");
 
 router.post("/admin", adminController.addAdmin);
 router.patch("/admin/:id", adminController.updateAdmin);

@@ -1,6 +1,7 @@
 var createError = require("http-errors");
 var express = require("express");
 const adminRouter = require("./routes/admin");
+const studentRouter = require("./routes/student");
 var app = express();
 var port = process.env.port || 5000;
 app.use(express.json());
@@ -11,7 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(adminRouter);
+app.use(studentRouter);
 
 app.listen(port, () => {
   console.log("Server Connected");
