@@ -15,7 +15,7 @@ const MaterialTableComponent = (props) => {
       icon: "visibility",
       tooltip: "View Details",
       onClick: (event, rowData) => {
-        // props.getByIdAction(rowData.id);
+        props.getByIdAction(rowData.id);
         setDrawerVisible(true);
       },
     },
@@ -43,7 +43,7 @@ const MaterialTableComponent = (props) => {
       <ProfileDrawer
         drawerVisible={drawerVisible}
         closeDrawer={() => setDrawerVisible(!drawerVisible)}
-        data={props.student}
+        data={props.profileData}
       />
     </>
   );

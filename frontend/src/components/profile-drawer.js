@@ -1,7 +1,7 @@
 import { Drawer, List, Avatar, Divider, Col, Row } from "antd";
 import React from "react";
 
-const DescriptionItem = ({ title, content }) => (
+export const DescriptionItem = ({ title, content }) => (
   <div className="site-description-item-profile-wrapper">
     <p className="site-description-item-profile-p-label">{title}:</p>
     {content}
@@ -40,13 +40,8 @@ class ProfileDrawer extends React.Component {
           </Row>
           <Row>
             {this.props.data
-              ? this.props.data.map((data) => {
-                  console.log("data", data);
-                  return (
-                    <Col span={12}>
-                      <DescriptionItem title="City" content="HangZhou" />
-                    </Col>
-                  );
+              ? this.props.data.map((data, index) => {
+                  return data;
                 })
               : ""}
           </Row>

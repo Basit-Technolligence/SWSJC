@@ -10,9 +10,9 @@ export const studentReducer = (
       console.log("payload", action.payload);
       return { students: [...state.students, action.payload] };
     case "GET_STUDENTS":
-      return { students: action.payload };
+      return { students: action.payload, singleStudent: state.singleStudent };
     case "GET_STUDENT_BY_ID":
-      return { singleStudent: action.payload, students: state.students };
+      return { singleStudent: [action.payload], students: state.students };
     case "DELETE_STUDENT":
       const copyStudents = [...state.students];
       const indexToDelete = copyStudents.findIndex(

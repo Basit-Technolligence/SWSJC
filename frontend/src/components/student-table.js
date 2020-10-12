@@ -7,6 +7,8 @@ import {
   deleteStudent,
   getStudentById,
 } from "../actions/students";
+import { Col } from "antd";
+import { DescriptionItem } from "./profile-drawer";
 
 const StudentTable = (props) => {
   const dispatch = useDispatch();
@@ -40,7 +42,17 @@ const StudentTable = (props) => {
       dob: student.dob,
     };
   });
-
+  const profileData = [
+    <Col span={12}>
+      <DescriptionItem title="Name" content="Hamza" />
+    </Col>,
+    <Col span={12}>
+      <DescriptionItem title="Father Name" content={props.student.fatherName} />
+    </Col>,
+    <Col span={12}>
+      <DescriptionItem title="Gr No." content={props.student.gr} />
+    </Col>,
+  ];
   return (
     <MaterialTableComponent
       title="Students"
@@ -48,6 +60,7 @@ const StudentTable = (props) => {
       columns={columns}
       getByIdAction={(id) => dispatch(getStudentById(id))}
       deleteAction={(id) => dispatch(deleteStudent(id))}
+      profileData={profileData}
     />
   );
 };
@@ -56,6 +69,7 @@ const mapStateToProps = (state) => {
   console.log("state", state.studentReducer);
   return {
     students: state.studentReducer.students,
+    student: state.studentReducer.singleStudent,
   };
 };
 export default connect(mapStateToProps)(StudentTable);
