@@ -1,10 +1,9 @@
+const express = require('express');
 const Admin = require("../models/admin");
 
 const addAdmin = async (req, res) => {
-  try {
-    const admin = new Admin(req.body);
-    await admin.save();
-    res.status(200).send("Inserted Successfully");
+ try {
+      res.status(200).send("Inserted Successfully");
   } catch (e) {
     res.send("Fail to Insert");
   }
