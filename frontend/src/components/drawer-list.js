@@ -56,7 +56,12 @@ const DrawerList = () => {
             setOpen = () => setOpenExpenses(!openExpenses);
           }
           return (
-            <DrawerListItem title={list} openVariable={open} onClick={setOpen}>
+            <DrawerListItem
+              title={list}
+              openVariable={open}
+              onClick={setOpen}
+              key={list}
+            >
               {icon}
               <NavLink to={"/Add" + list} className={classes.navlink}>
                 <ListItem button className={classes.nested}>

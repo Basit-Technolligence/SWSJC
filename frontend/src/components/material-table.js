@@ -1,21 +1,25 @@
 import React from "react";
 import MaterialTable from "material-table";
 import ProfileDrawer from "./profile-drawer";
-import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const MaterialTableComponent = (props) => {
+  const history = useHistory();
   const [drawerVisible, setDrawerVisible] = React.useState(false);
   const actions = [
     {
       icon: "edit",
       tooltip: "Edit",
-      onClick: (event, rowData) => {},
+      onClick: async (event, rowData) => {
+        await props.getByIdAction(rowData.id);
+        history.push("/EditStudent");
+      },
     },
     {
       icon: "visibility",
       tooltip: "View Details",
-      onClick: (event, rowData) => {
-        props.getByIdAction(rowData.id);
+      onClick: async (event, rowData) => {
+        await props.getByIdAction(rowData.id);
         setDrawerVisible(true);
       },
     },
@@ -48,9 +52,5 @@ const MaterialTableComponent = (props) => {
     </>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    student: state.studentReducer.singleStudent,
-  };
-};
-export default connect(mapStateToProps)(MaterialTableComponent);
+
+export default MaterialTableComponent;

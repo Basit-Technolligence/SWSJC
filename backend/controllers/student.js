@@ -14,6 +14,7 @@ const getStudentById = async (req, res) => {
   try {
     const response = await db.collection("students").doc(req.params.id).get();
     const data = await response.data();
+    data.id = req.params.id;
     res.send(data);
   } catch (e) {
     res.send(e);
@@ -36,7 +37,7 @@ const getStudent = async (req, res) => {
 const updateStudent = async (req, res) => {
   try {
     await db.collection("students").doc(req.params.id).update(req.body);
-    res.send("Updated data");
+    res.send("Updated Data");
   } catch (e) {
     res.send(e);
   }

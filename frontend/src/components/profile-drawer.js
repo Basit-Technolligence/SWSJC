@@ -1,4 +1,4 @@
-import { Drawer, List, Avatar, Divider, Col, Row } from "antd";
+import { Drawer, Col, Row } from "antd";
 import React from "react";
 
 export const DescriptionItem = ({ title, content }) => (
@@ -10,7 +10,6 @@ export const DescriptionItem = ({ title, content }) => (
 
 class ProfileDrawer extends React.Component {
   render() {
-    console.log("adasda", this.props.data);
     return (
       <>
         <Drawer
@@ -24,24 +23,17 @@ class ProfileDrawer extends React.Component {
             className="site-description-item-profile-p"
             style={{ marginBottom: 50 }}
           >
-            User Profile
+            Detail Information
           </p>
 
           <Row>
-            <Col span={12}>
-              <DescriptionItem title="Full Name" content="Lily" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem
-                title="Account"
-                content="AntDesign@example.com"
-              />
-            </Col>
-          </Row>
-          <Row>
             {this.props.data
-              ? this.props.data.map((data, index) => {
-                  return data;
+              ? this.props.data.map((data) => {
+                  return (
+                    <Col span={12} key={data[0]}>
+                      <DescriptionItem title={data[0]} content={data[1]} />
+                    </Col>
+                  );
                 })
               : ""}
           </Row>

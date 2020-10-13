@@ -20,6 +20,7 @@ const RegistrationForm = (props) => {
             wrapperCol={{
               span: 14,
             }}
+            initialValues={props.initialValues}
             onFinish={onFinish}
           >
             {props.children}

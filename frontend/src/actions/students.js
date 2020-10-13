@@ -27,7 +27,6 @@ export const getStudents = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get("//127.0.0.1:5000/students");
-      console.log("response", response.data);
       dispatch({
         type: "GET_STUDENTS",
         payload: response.data,
@@ -53,19 +52,26 @@ export const getStudentById = (id) => {
   };
 };
 export const updateStudent = (id, student) => {
+  student.doa = convertDate(student.doa);
+  student.dob = convertDate(student.dob);
   return async (dispatch) => {
     try {
       const response = await axios.patch(
-        "//127.0.0.1:5000/students" + id,
+        "//127.0.0.1:5000/students/" + id,
         student
       );
-      dispatch({
-        type: "UPDATE_STUDENT",
-        payload: response.data,
-      });
+      if (response.data === "Updated Data") {
+        dispatch({
+          type: "UPDATE_STUDENT",
+          payload: response.data,
+        });
+        alert("Record Updated Successfully");
+      } else {
+        alert("Sorry, Try again!");
+      }
     } catch (e) {
       console.log("action error occur", e);
-      alert("Sorry! try again.");
+      alert("Sorry, Try again!");
     }
   };
 };

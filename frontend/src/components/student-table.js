@@ -7,8 +7,6 @@ import {
   deleteStudent,
   getStudentById,
 } from "../actions/students";
-import { Col } from "antd";
-import { DescriptionItem } from "./profile-drawer";
 
 const StudentTable = (props) => {
   const dispatch = useDispatch();
@@ -42,17 +40,20 @@ const StudentTable = (props) => {
       dob: student.dob,
     };
   });
-  const profileData = [
-    <Col span={12}>
-      <DescriptionItem title="Name" content="Hamza" />
-    </Col>,
-    <Col span={12}>
-      <DescriptionItem title="Father Name" content={props.student.fatherName} />
-    </Col>,
-    <Col span={12}>
-      <DescriptionItem title="Gr No." content={props.student.gr} />
-    </Col>,
-  ];
+  let profileData = [];
+  if (props.student[0]) {
+    profileData = [
+      ["Name", props.student[0].name],
+      ["Father Name", props.student[0].fatherName],
+      ["Cast", props.student[0].cast],
+      ["Date of Birth", props.student[0].dob],
+      ["Gr No.", props.student[0].grNo],
+      ["Date of Admision", props.student[0].doa],
+      ["Admision Class", props.student[0].admissionClass],
+      ["Current Class", props.student[0].currentClass],
+      ["Current Fee", "Rs. " + props.student[0].fee],
+    ];
+  }
   return (
     <MaterialTableComponent
       title="Students"
@@ -66,7 +67,6 @@ const StudentTable = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("state", state.studentReducer);
   return {
     students: state.studentReducer.students,
     student: state.studentReducer.singleStudent,
