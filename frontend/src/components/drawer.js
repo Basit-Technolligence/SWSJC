@@ -22,6 +22,7 @@ import StudentForm from "./student-form";
 import StudentTable from "./student-table";
 import ExpenseForm from "./expense-form";
 import ExpenseTable from "./expense-table";
+import teacherForm from "./teacher-form";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -160,6 +161,8 @@ export default function DrawerLeft() {
           <Route exact path="/EditStudents" component={StudentForm} />
           <Route exact path="/AddExpenses" component={ExpenseForm} />
           <Route exact path="/ManageExpenses" component={ExpenseTable} />
+          <Route exact path="/AddTeachers" component={teacherForm} />
+
         </Switch>
       </main>
     </div>
