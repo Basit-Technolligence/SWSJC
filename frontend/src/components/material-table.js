@@ -6,24 +6,54 @@ import { useHistory } from "react-router-dom";
 const MaterialTableComponent = (props) => {
   const history = useHistory();
   const [drawerVisible, setDrawerVisible] = React.useState(false);
-  const actions = [
-    {
-      icon: "edit",
-      tooltip: "Edit",
-      onClick: async (event, rowData) => {
-        await props.getByIdAction(rowData.id);
-        history.push("/Edit" + props.title);
+  let actions = [];
+  let editableAction = {};
+  if (props.editable === "delete") {
+    editableAction = {
+      onRowDelete: (oldData) =>
+        new Promise((resolve, reject) => {
+          setTimeout(async () => {
+            //write delete code here
+            await props.editableAction(oldData.id);
+            resolve();
+          }, 1000);
+        }),
+    };
+  } else {
+    editableAction = {
+      onRowUpdate: (newData, oldData) =>
+        new Promise((resolve, reject) => {
+          setTimeout(async () => {
+            // const dataUpdate = [...data];
+            // const index = oldData.tableData.id;
+            // dataUpdate[index] = newData;
+            // setData([...dataUpdate]);
+            await props.editableAction(oldData.id, newData);
+            resolve();
+          }, 1000);
+        }),
+    };
+  }
+  if (props.allowExtraAction === true) {
+    actions = [
+      {
+        icon: "edit",
+        tooltip: "Edit",
+        onClick: async (event, rowData) => {
+          await props.getByIdAction(rowData.id);
+          history.push("/Edit" + props.title);
+        },
       },
-    },
-    {
-      icon: "visibility",
-      tooltip: "View Details",
-      onClick: async (event, rowData) => {
-        await props.getByIdAction(rowData.id);
-        setDrawerVisible(true);
+      {
+        icon: "visibility",
+        tooltip: "View Details",
+        onClick: async (event, rowData) => {
+          await props.getByIdAction(rowData.id);
+          setDrawerVisible(true);
+        },
       },
-    },
-  ];
+    ];
+  }
 
   return (
     <>
@@ -33,16 +63,7 @@ const MaterialTableComponent = (props) => {
         actions={actions}
         data={props.data}
         options={{ exportButton: true }}
-        editable={{
-          onRowDelete: (oldData) =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                //write delete code here
-                props.deleteAction(oldData.id);
-                resolve();
-              }, 1000);
-            }),
-        }}
+        editable={editableAction}
       />
       <ProfileDrawer
         drawerVisible={drawerVisible}

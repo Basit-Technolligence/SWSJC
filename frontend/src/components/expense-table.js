@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import MaterialTableComponent from "./material-table";
-import { fetchExpenses } from "../actions/expensesActions";
+import { fetchExpenses, updateExpense } from "../actions/expensesActions";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 
@@ -23,26 +23,30 @@ const ExpenseTable = (props) => {
     },
   ];
 
-  const data = props.expenses.map((expense)=>{
-    return{
+  const data = props.expenses.map((expense) => {
+    return {
+      id: expense.id,
       title: expense.title,
       amount: expense.Amount,
       date: expense.doe,
       comment: expense.comment,
-
-    }
-  })
+    };
+  });
   return (
-    <MaterialTableComponent title="Expenses" data={data} columns={columns} />
+    <MaterialTableComponent
+      title="Expenses"
+      data={data}
+      columns={columns}
+      editableAction={(id, expense) => dispatch(updateExpense(id, expense))}
+      editable="edit"
+    />
   );
-}
+};
 
-const mapStateToProps = (state) =>{
-  console.log("statefssf::",state)
-  return{
+const mapStateToProps = (state) => {
+  return {
     expenses: state.allExpReducer.allExp,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(ExpenseTable);
-
