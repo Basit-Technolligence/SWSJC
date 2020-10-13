@@ -59,9 +59,11 @@ const StudentTable = (props) => {
     <MaterialTableComponent
       title="Students"
       data={data}
+      allowExtraAction={true}
       columns={columns}
       getByIdAction={(id) => dispatch(getStudentById(id))}
-      deleteAction={(id) => dispatch(deleteStudent(id))}
+      editableAction={(id) => dispatch(deleteStudent(id))}
+      editable="delete"
       profileData={profileData}
     />
   );
