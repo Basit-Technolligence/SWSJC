@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import RegistrationForm from "./registration-form";
 import { Input, DatePicker, InputNumber } from "antd";
 import FormItem from "./form-item";
+import { useDispatch } from "react-redux";
+import { addExpense } from "../actions/expensesActions";
 
 const ExpenseForm = () => {
+  const dispatch = useDispatch();
   return (
     <>
-      <RegistrationForm buttonText="ADD EXPENSE RECORD">
+      <RegistrationForm buttonText="ADD EXPENSE RECORD" action={(s) => dispatch(addExpense(s))}
+ >
         <FormItem label="Title" name="title">
           <Input />
         </FormItem>
         <FormItem label="Date of Expense" name="doe">
           <DatePicker />
         </FormItem>
-        <FormItem label="Ammount in Rs" name="expense-ammount">
+        <FormItem label="Ammount in Rs" name="Amount">
           <InputNumber />
         </FormItem>
         <FormItem label="Comment" name="comment">

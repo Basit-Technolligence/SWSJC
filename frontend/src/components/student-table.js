@@ -13,6 +13,7 @@ const StudentTable = (props) => {
   useEffect(() => {
     dispatch(getStudents());
   }, []);
+
   const columns = [
     { title: "Name", field: "name" },
     {

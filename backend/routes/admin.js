@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const adminController = require("../controllers/admin");
 
-router.post("/admin", adminController.addAdmin);
+router.get("/admin", adminController.addAdmin);
 router.patch("/admin/:id", adminController.updateAdmin);
 router.delete("/admin/:id", adminController.deleteAdmin);
 
