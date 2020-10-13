@@ -15,6 +15,7 @@ const StudentTable = (props) => {
   useEffect(() => {
     dispatch(getStudents());
   }, []);
+  
   const columns = [
     { title: "Name", field: "name" },
     {
@@ -47,7 +48,7 @@ const StudentTable = (props) => {
       <DescriptionItem title="Name" content="Hamza" />
     </Col>,
     <Col span={12}>
-      <DescriptionItem title="Father Name" content={props.student.fatherName} />
+      <DescriptionItem title="Father Name" content="Hello" />
     </Col>,
     <Col span={12}>
       <DescriptionItem title="Gr No." content={props.student.gr} />

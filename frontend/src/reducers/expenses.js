@@ -13,6 +13,8 @@ export const allExpReducer = (state=initialState, action) =>{
             return{
                 ...state
                 }
+        case "EXPENSE_ADDED":
+            return { expenses: [...state.expenses, action.payload] };        
         default:
             return{
                 ...state
