@@ -157,7 +157,7 @@ export default function DrawerLeft() {
         <Switch>
           <Route exact path="/AddStudents" component={StudentForm} />
           <Route exact path="/ManageStudents" component={StudentTable} />
-          <Route exact path="/EditStudent" component={StudentForm} />
+          <Route exact path="/EditStudents" component={StudentForm} />
           <Route exact path="/AddExpenses" component={ExpenseForm} />
           <Route exact path="/ManageExpenses" component={ExpenseTable} />
         </Switch>

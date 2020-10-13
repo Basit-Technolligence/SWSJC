@@ -5,6 +5,7 @@ import FormItem from "./form-item";
 import { addStudent, updateStudent } from "../actions/students";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
+import moment from "moment";
 
 const StudentForm = (props) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const StudentForm = (props) => {
   let action = (s) => dispatch(addStudent(s));
   let buttonText = "ADD STUDENT RECORD";
 
-  if (props.location.pathname === "/EditStudent") {
+  if (props.location.pathname === "/EditStudents") {
     buttonText = "UPDATE STUDENT RECORD";
     action = (s) => dispatch(updateStudent(props.student[0].id, s));
     classLabel = "Current Class";
@@ -26,10 +27,11 @@ const StudentForm = (props) => {
       ["currentClass"]: props.student[0].currentClass,
       ["grNo"]: props.student[0].grNo,
       ["fee"]: props.student[0].fee,
-      //   ["doa"]: props.student[0].doa,
-      //   ["dob"]: props.student[0].dob,
+      ["doa"]: moment(props.student[0].doa),
+      ["dob"]: moment(props.student[0].dob),
     };
   }
+  console.log("initial", initialValues);
   return (
     <>
       <RegistrationForm

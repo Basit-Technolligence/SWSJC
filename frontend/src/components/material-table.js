@@ -12,7 +12,7 @@ const MaterialTableComponent = (props) => {
       tooltip: "Edit",
       onClick: async (event, rowData) => {
         await props.getByIdAction(rowData.id);
-        history.push("/EditStudent");
+        history.push("/Edit" + props.title);
       },
     },
     {
