@@ -6,11 +6,12 @@ import { addStudent, updateStudent } from "../actions/students";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 import moment from "moment";
+import { addTeacher } from "../actions/teacherActions";
 
 const TeacherForm = (props) => {
   const dispatch = useDispatch();
   let initialValues = {};
-  let action = (s) => dispatch(addStudent(s));
+  let action = (s) => dispatch(addTeacher(s));
   let buttonText = "ADD TEACHER RECORD";
 
   if (props.location.pathname === "/EditTeachers") {
@@ -84,9 +85,9 @@ const TeacherForm = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log(state.studentReducer.singleStudent);
+  console.log(state);
   return {
-    techer: state.studentReducer.singleStudent,
+    teacher: state.teacherReducer.teachers
   };
 };
 export default connect(mapStateToProps)(TeacherForm);
