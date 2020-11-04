@@ -23,6 +23,10 @@ import StudentTable from "./student-table";
 import ExpenseForm from "./expense-form";
 import ExpenseTable from "./expense-table";
 import teacherForm from "./teacher-form";
+import {logout} from "../actions/admin";
+import { useHistory } from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux'
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -94,7 +98,15 @@ export default function DrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const dispatch = useDispatch();
+  const history = useHistory();
+  useSelector(state => {
+    console.log('logout',state.adminReducer);
+    if(!state.adminReducer){
+      history.push('/');
+      console.log('logout done');
+    }
+  });
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -141,7 +153,11 @@ export default function DrawerLeft() {
         <DrawerList />
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem 
+            button
+            onClick={() => {
+              dispatch(logout());
+            }}>
             <ListItemIcon>
               <ExitToAppIcon />
             </ListItemIcon>
@@ -156,12 +172,12 @@ export default function DrawerLeft() {
       >
         <div className={classes.drawerHeader} />
         <Switch>
-          <Route exact path="/AddStudents" component={StudentForm} />
-          <Route exact path="/ManageStudents" component={StudentTable} />
-          <Route exact path="/EditStudents" component={StudentForm} />
-          <Route exact path="/AddExpenses" component={ExpenseForm} />
-          <Route exact path="/ManageExpenses" component={ExpenseTable} />
-          <Route exact path="/AddTeachers" component={teacherForm} />
+          <Route exact path="/home/AddStudents" component={StudentForm} />
+          <Route exact path="/home/ManageStudents" component={StudentTable} />
+          <Route exact path="/home/EditStudents" component={StudentForm} />
+          <Route exact path="/home/AddExpenses" component={ExpenseForm} />
+          <Route exact path="/home/ManageExpenses" component={ExpenseTable} />
+          <Route exact path="/home/AddTeachers" component={teacherForm} />
 
         </Switch>
       </main>

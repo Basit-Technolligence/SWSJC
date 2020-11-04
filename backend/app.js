@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use(studentRouter);
 app.use(expenseRouter);
 app.use(teacherRoutes);
-
+app.use(adminRouter);
 app.listen(port, () => {
   console.log("Server Connected");
 });

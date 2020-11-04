@@ -63,12 +63,12 @@ const DrawerList = () => {
               key={list}
             >
               {icon}
-              <NavLink to={"/Add" + list} className={classes.navlink}>
+              <NavLink to={"/home/Add" + list} className={classes.navlink}>
                 <ListItem button className={classes.nested}>
                   <ListItemText primary={"Add " + list} />
                 </ListItem>
               </NavLink>
-              <NavLink to={"/Manage" + list} className={classes.navlink}>
+              <NavLink to={"/home/Manage" + list} className={classes.navlink}>
                 <ListItem button className={classes.nested}>
                   <ListItemText primary={"Manage " + list} />
                 </ListItem>
