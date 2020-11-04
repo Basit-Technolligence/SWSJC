@@ -70,6 +70,15 @@ const logout = async (req,res)=>{
   }
 };
 
+const changePassword = async (req, res) => {
+  try {
+    await db.collection("admins").doc('asd').update(req.body);
+    res.send("UPDATED_DATA");
+  } catch (e) {
+    res.send(e);
+  }
+};
+
 const authListen=async (req,res)=>{
   try{
     await db.auth().onAuthStateChanged((user)=>{
@@ -110,4 +119,5 @@ const authListen=async (req,res)=>{
 exports.login = login;
 exports.addLogin = addLogin;
 exports.logout=logout;
+exports.changePassword = changePassword;
 exports.authListen = authListen;

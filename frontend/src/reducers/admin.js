@@ -1,12 +1,14 @@
-export const adminReducer = (loggedIn=false,
+export const adminReducer = (state={
+    loggedIn:false,
+    username:null
+},
 action)=>{
     switch(action.type){
         case "LOGOUT_SUCCESS":
-            console.log('adas')
-            return false;
+            return {loggedIn:false};
         case "LOGIN_SUCCESS":
-            return true;
+            return {loggedIn:true,username:action.payload};
         default:
-            return loggedIn;
+            return state;
     }
 }

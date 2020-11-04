@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from 'react-redux'
 const LoginForm = () => {
   const history = useHistory();
   useSelector(state => {
-    if(state.adminReducer){
+    if(state.adminReducer.loggedIn){
       history.push('/home');
       console.log('login done');
     }else{

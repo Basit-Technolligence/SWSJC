@@ -4,7 +4,7 @@ export const login = (login) => {
     try {
       const response = await axios.post("//127.0.0.1:5000/login", login);
       if(response.data === 'LOGIN_SUCCESS'){
-      dispatch({type: "LOGIN_SUCCESS"});
+      dispatch({type: "LOGIN_SUCCESS",payload:login.username});
     }else{
         alert('Invalid username or password')
     }

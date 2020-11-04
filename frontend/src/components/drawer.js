@@ -101,8 +101,7 @@ export default function DrawerLeft() {
   const dispatch = useDispatch();
   const history = useHistory();
   useSelector(state => {
-    console.log('logout',state.adminReducer);
-    if(!state.adminReducer){
+    if(!state.adminReducer.loggedIn){
       history.push('/');
       console.log('logout done');
     }
