@@ -21,6 +21,7 @@ const getStudentById = async (req, res) => {
     res.send(e);
   }
 };
+
 const getStudent = async (req, res) => {
   try {
     const response = await db.collection("students").get();
@@ -43,6 +44,7 @@ const updateStudent = async (req, res) => {
     res.send(e);
   }
 };
+
 const deleteStudent = async (req, res) => {
   try {
     await db.collection("students").doc(req.params.id).delete();

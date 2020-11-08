@@ -37,6 +37,8 @@ export const getStudents = () => {
     }
   };
 };
+
+
 export const getStudentById = (id) => {
   return async (dispatch) => {
     try {
@@ -51,6 +53,7 @@ export const getStudentById = (id) => {
     }
   };
 };
+
 export const updateStudent = (id, student) => {
   student.doa = convertDate(student.doa);
   student.dob = convertDate(student.dob);
@@ -75,6 +78,8 @@ export const updateStudent = (id, student) => {
     }
   };
 };
+
+
 export const deleteStudent = (id) => {
   return async (dispatch) => {
     try {

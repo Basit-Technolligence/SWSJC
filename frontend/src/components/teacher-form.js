@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import RegistrationForm from "./registration-form";
 import { Input, Select, DatePicker, InputNumber } from "antd";
 import FormItem from "./form-item";
-import { addStudent, updateStudent } from "../actions/students";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 import moment from "moment";
-import { addTeacher } from "../actions/teacherActions";
+import { addTeacher, updateTeacher } from "../actions/teacherActions";
 
 const TeacherForm = (props) => {
   const dispatch = useDispatch();
@@ -16,16 +15,20 @@ const TeacherForm = (props) => {
 
   if (props.location.pathname === "/home/EditTeachers") {
     buttonText = "UPDATE TEACHER RECORD";
-    action = (s) => dispatch(updateStudent(props.student[0].id, s));
+    action = (s) => dispatch(updateTeacher(props.teacher[0].id, s));
     initialValues = {
-      ["name"]: props.student[0].name,
-      ["fatherName"]: props.student[0].fatherName,
-      ["cast"]: props.student[0].cast,
-      ["currentClass"]: props.student[0].currentClass,
-      ["grNo"]: props.student[0].grNo,
-      ["fee"]: props.student[0].fee,
-      ["doa"]: moment(props.student[0].doa),
-      ["dob"]: moment(props.student[0].dob),
+      ["name"]: props.teacher[0].name,
+      ["fatherName"]: props.teacher[0].fatherName,
+      ["cnic"]: props.teacher[0].cnic,
+      ["qualification"]: props.teacher[0].qualification,
+      ["experience"]: props.teacher[0].experience,
+      ["doj"]: moment(props.teacher[0].doa),
+      ["designation"]: moment(props.teacher[0].designation),
+      ["xcr"]: moment(props.teacher[0].xcr),
+      ["cast"]: moment(props.teacher[0].cast),
+      ["grNo"]: moment(props.teacher[0].grNo),
+      ["salary"]: moment(props.teacher[0].salary),
+      ["comment"]: moment(props.teacher[0].comment),
     };
   }
   console.log("initial", initialValues);
@@ -87,7 +90,7 @@ const TeacherForm = (props) => {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    teacher: state.teacherReducer.teachers
+    teacher: state.teacherReducer.oneTeacher
   };
 };
 export default connect(mapStateToProps)(TeacherForm);
