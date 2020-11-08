@@ -73,3 +73,27 @@ export const addTeacher = (body) => {
       }
     };
   };
+
+  export const updateTeacher = (id, teacher) => {
+    teacher.doj = convertDate(teacher.doj);
+    return async (dispatch) => {
+      try {
+        const response = await axios.patch(
+          "//127.0.0.1:5000/teachers/" + id,
+          teacher
+        );
+        if (response.data === "Updated Data") {
+          dispatch({
+            type: "UPDATE_TEACHER",
+            payload: response.data,
+          });
+          alert("Record Updated Successfully");
+        } else {
+          alert("Sorry, Try again!");
+        }
+      } catch (e) {
+        console.log("action error occur", e);
+        alert("Sorry, Try again!");
+      }
+    };
+  };

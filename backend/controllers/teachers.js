@@ -63,3 +63,4 @@ exports.addTeacher = addTeacher;
 exports.getTeacher = getTeacher;
 exports.getTeacherbyId = getTeacherbyId;
 exports.deleteTeacher = deleteTeacher;
+exports.updateTeacher = updateTeacher;
