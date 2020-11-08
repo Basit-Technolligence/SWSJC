@@ -15,7 +15,7 @@ const StudentForm = (props) => {
   let action = (s) => dispatch(addStudent(s));
   let buttonText = "ADD STUDENT RECORD";
 
-  if (props.location.pathname === "/EditStudents") {
+  if (props.location.pathname === "/home/EditStudents") {
     buttonText = "UPDATE STUDENT RECORD";
     action = (s) => dispatch(updateStudent(props.student[0].id, s));
     classLabel = "Current Class";

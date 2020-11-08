@@ -96,3 +96,17 @@ export const deleteStudent = (id) => {
     }
   };
 };
+export const getChallan=(data)=>{
+  return async (dispatch) => {
+    try{
+      console.log('row',data)
+      const response = await axios.post('//127.0.0.1:5000/getChallan',data);
+      if(response.data === 'DONE')
+        alert('Challan downloaded in desktop')
+      dispatch({type:"CHALLAN_DONE"})
+    }catch(e){
+      console.log(e);
+      alert('Sorry! try again');
+    }
+  }
+}

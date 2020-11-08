@@ -14,7 +14,7 @@ const TeacherForm = (props) => {
   let action = (s) => dispatch(addTeacher(s));
   let buttonText = "ADD TEACHER RECORD";
 
-  if (props.location.pathname === "/EditTeachers") {
+  if (props.location.pathname === "/home/EditTeachers") {
     buttonText = "UPDATE TEACHER RECORD";
     action = (s) => dispatch(updateStudent(props.student[0].id, s));
     initialValues = {

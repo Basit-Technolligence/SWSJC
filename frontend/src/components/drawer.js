@@ -26,7 +26,8 @@ import teacherForm from "./teacher-form";
 import {logout} from "../actions/admin";
 import { useHistory } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
-import teachertable from '../components/teachertable';
+import { ListItemAvatar } from "@material-ui/core";
+import StudentChallan from "./student-challan";
 
 const drawerWidth = 240;
 
@@ -178,8 +179,7 @@ export default function DrawerLeft() {
           <Route exact path="/home/AddExpenses" component={ExpenseForm} />
           <Route exact path="/home/ManageExpenses" component={ExpenseTable} />
           <Route exact path="/home/AddTeachers" component={teacherForm} />
-          <Route exact path="/home/ManageTeachers" component={teachertable} />
-
+          <Route exact path="/home/Challan" component={StudentChallan} />
 
         </Switch>
       </main>
