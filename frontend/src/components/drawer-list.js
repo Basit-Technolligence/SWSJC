@@ -13,6 +13,7 @@ import LocalAtmIcon from "@material-ui/icons/LocalAtm";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ReceiptIcon from "@material-ui/icons/Receipt";
 import DrawerListItem from "./drawer-list-item";
+import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,6 +78,16 @@ const DrawerList = () => {
           );
         })}
       </List>
+      <List>
+      <NavLink to={"/home/Challan"} className={classes.navlink}>
+          <ListItem button>
+            <ListItemIcon>
+              <SystemUpdateAltIcon />
+            </ListItemIcon>
+            <ListItemText primary="Students' Challan" />
+          </ListItem>
+          </NavLink>
+        </List>
     </>
   );
 };

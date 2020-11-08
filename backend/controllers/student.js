@@ -1,5 +1,6 @@
 const { response } = require("express");
 const db = require("../database/admin");
+const createPDF = require('./pdf')
 
 const addStudent = async (req, res) => {
   try {
@@ -50,8 +51,19 @@ const deleteStudent = async (req, res) => {
     res.send(e);
   }
 };
+
+const exportPDF = async (req,res)=>{
+  try{
+    await createPDF(req.body);
+    res.send("DONE")
+  }catch(e){
+    res.send(e);
+  }
+}
+
 exports.addStudent = addStudent;
 exports.getStudentById = getStudentById;
 exports.getStudent = getStudent;
 exports.updateStudent = updateStudent;
 exports.deleteStudent = deleteStudent;
+exports.exportPDF = exportPDF;
