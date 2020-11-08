@@ -4,6 +4,7 @@ var inWords = require('./inWords')
 const createPDF= (data)=>{
     try{    
         data.inWords = inWords(data.fee.substring(4,data.fee.length));
+        data.date = new Date();
     console.log('pdf',data)
     var html = fs.readFileSync(`${__dirname}/pdfDesign.html`, 'utf8');
  
@@ -13,15 +14,13 @@ const createPDF= (data)=>{
         border: "10mm"
     };
 
-    var users = [
-        data
- ]
+    var users = data;
     var document = {
         html: html,
         data: {
             users: users
         },
-        path: `${process.env.HOME}/Desktop/challan.pdf`
+        path: `${process.env.HOME}/Desktop/${data.name}_${data.gr}_challan.pdf`
     };
     pdf.create(document, options)
         .then(res => {
