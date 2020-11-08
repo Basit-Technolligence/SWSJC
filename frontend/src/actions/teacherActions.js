@@ -89,7 +89,7 @@ export const addTeacher = (body) => {
           });
           alert("Record Updated Successfully");
         } else {
-          alert("Sorry, Try again!");
+          alert("Sorry, update Failed!");
         }
       } catch (e) {
         console.log("action error occur", e);
