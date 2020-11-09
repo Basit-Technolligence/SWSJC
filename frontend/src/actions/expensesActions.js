@@ -20,7 +20,7 @@ export const fetchExpenses = () => {
 
 export const addExpense = (body) => {
   console.log("sdlkfjj: ", body);
-  body.doe = convertDate(body.doe);
+  body.date = convertDate(body.date);
 
   console.log("aftter covert: ", body);
   return async (dispatch) => {
