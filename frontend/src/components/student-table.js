@@ -70,6 +70,7 @@ const StudentTable = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log('stud red', state.studentReducer)
   return {
     students: state.studentReducer.students,
     student: state.studentReducer.singleStudent,

@@ -2,9 +2,11 @@ const db = require("../database/admin");
 
 const addLogin = async (req, res) => {
   try {
+    console.log('login ',req.body)
     const response = await db.collection("admins").doc(req.body.username).get();
     const data = await response.data();
-    if(data.username != req.body.username){
+    console.log('data',data)
+    if(!data){
     await db.collection("admins").doc(req.body.username).set(req.body);
     res.send("DATA_ADDED");
     }else{

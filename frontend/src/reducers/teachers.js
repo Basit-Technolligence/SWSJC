@@ -8,8 +8,7 @@ export const teacherReducer = (state=initialState, action) =>{
     const {type,payload} = action;
     switch(type){
         case "ADD_TEACHER":
-            return{
-                allTeachers: [...state.allTeachers, action.payload]
+            return {...state, allTeachers: [...state.allTeachers, action.payload]
             };
         case "GET_TEACHERS":
             return { ...state, allTeachers: action.payload };

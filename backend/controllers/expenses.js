@@ -30,6 +30,7 @@ const getAllExpenses = async(req,res)=>{
 
 const updateExpenses = async (req,res)=>{
     try{
+        console.log(req.body)
         const response = await db.collection("expenses").doc(req.params.id).update(req.body);
         res.send("Updated Successfully");
     }catch(e){

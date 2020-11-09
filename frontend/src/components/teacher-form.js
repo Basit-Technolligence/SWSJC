@@ -23,12 +23,12 @@ const TeacherForm = (props) => {
       ["qualification"]: props.teacher[0].qualification,
       ["experience"]: props.teacher[0].experience,
       ["doj"]: moment(props.teacher[0].doa),
-      ["designation"]: moment(props.teacher[0].designation),
-      ["xcr"]: moment(props.teacher[0].xcr),
-      ["cast"]: moment(props.teacher[0].cast),
-      ["grNo"]: moment(props.teacher[0].grNo),
-      ["salary"]: moment(props.teacher[0].salary),
-      ["comment"]: moment(props.teacher[0].comment),
+      ["designation"]: props.teacher[0].designation,
+      ["xcr"]: props.teacher[0].xcr,
+      ["cast"]: props.teacher[0].cast,
+      ["grNo"]: props.teacher[0].grNo,
+      ["salary"]: props.teacher[0].salary,
+      ["comment"]: props.teacher[0].comment,
     };
   }
   console.log("initial", initialValues);
