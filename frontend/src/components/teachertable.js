@@ -39,6 +39,11 @@ const TeacherTable = (props) => {
       fatherName: teacher.fatherName,
       designation: teacher.designation,
       qualification: teacher.qualification,
+      experience: teacher.experience,
+      cast: teacher.cast,
+      comment: teacher.comment,
+      grno: teacher.grNo,
+      salary: teacher.salary,
       doj: teacher.doj,
       xcr: teacher.xcr,
     };

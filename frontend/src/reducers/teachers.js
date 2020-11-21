@@ -14,6 +14,7 @@ export const teacherReducer = (state=initialState, action) =>{
         case "GET_TEACHERS":
             return { ...state, allTeachers: action.payload };
         case "GET_TEACHER_BY_ID":
+            console.log("from reducer: ", action.payload);
             return { ...state, oneTeacher: [action.payload] };
         case "DELETE_TEACHER":
             const copyTeachers = [...state.allTeachers];

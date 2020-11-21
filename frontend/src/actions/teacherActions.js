@@ -4,7 +4,7 @@ import { convertDate } from './convert-date';
 export const addTeacher = (body) => {
     console.log("teacherrbody: ", body);
 
-    body.doe = convertDate(body.doj);
+    body.doj = convertDate(body.doj);
   
     console.log("aftter covert: ", body);
     return async (dispatch) => {
