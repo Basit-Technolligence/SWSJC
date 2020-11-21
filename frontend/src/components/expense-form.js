@@ -14,10 +14,10 @@ const ExpenseForm = () => {
         <FormItem label="Title" name="title">
           <Input />
         </FormItem>
-        <FormItem label="Date of Expense" name="doe">
+        <FormItem label="Date of Expense" name="date">
           <DatePicker />
         </FormItem>
-        <FormItem label="Ammount in Rs" name="Amount">
+        <FormItem label="Ammount in Rs" name="amount">
           <InputNumber />
         </FormItem>
         <FormItem label="Comment" name="comment">

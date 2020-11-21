@@ -27,8 +27,8 @@ const ExpenseTable = (props) => {
     return {
       id: expense.id,
       title: expense.title,
-      amount: expense.Amount,
-      date: expense.doe,
+      amount: expense.amount,
+      date: expense.date,
       comment: expense.comment,
     };
   });

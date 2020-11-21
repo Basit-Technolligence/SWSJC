@@ -30,7 +30,6 @@ const TeacherTable = (props) => {
         field: "xcr",
       },
   ];
-  console.log("fromprops", props);
 
   const data = props.teachers.map((teacher) => {
     return {
@@ -79,7 +78,7 @@ const TeacherTable = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state.teacherReducer.allTeachers);
+    console.log(state.teacherReducer);
   return {
     teachers: state.teacherReducer.allTeachers,
     teacher: state.teacherReducer.oneTeacher,

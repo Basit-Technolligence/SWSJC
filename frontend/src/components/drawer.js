@@ -28,6 +28,7 @@ import { useHistory } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import { ListItemAvatar } from "@material-ui/core";
 import StudentChallan from "./student-challan";
+import Instructions from "./instruction";
 import teachertable from "./teachertable";
 import teacherform from "./teacher-form";
 
@@ -176,6 +177,7 @@ export default function DrawerLeft() {
       >
         <div className={classes.drawerHeader} />
         <Switch>
+          <Route exact path="/home" component={Instructions} />
           <Route exact path="/home/AddStudents" component={StudentForm} />
           <Route exact path="/home/ManageStudents" component={StudentTable} />
           <Route exact path="/home/EditStudents" component={StudentForm} />
