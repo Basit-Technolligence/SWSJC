@@ -75,6 +75,7 @@ const StudentChallan = (props) => {
 
       <br/>
       <br/>
+      <hr/>
 
       {nam.show ? <div>
         
