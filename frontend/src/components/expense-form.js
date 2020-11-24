@@ -10,7 +10,7 @@ const ExpenseForm = () => {
   return (
     <>
       <RegistrationForm buttonText="ADD EXPENSE RECORD" action={(s) => dispatch(addExpense(s))}
- >
+      >
         <FormItem label="Title" name="title">
           <Input />
         </FormItem>

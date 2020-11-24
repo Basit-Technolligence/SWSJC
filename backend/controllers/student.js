@@ -54,11 +54,11 @@ const deleteStudent = async (req, res) => {
   }
 };
 
-const exportPDF = async (req,res)=>{
-  try{
+const exportPDF = async (req, res) => {
+  try {
     await createPDF(req.body);
     res.send("DONE")
-  }catch(e){
+  } catch (e) {
     res.send(e);
   }
 }

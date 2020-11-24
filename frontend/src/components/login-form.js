@@ -1,19 +1,19 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Grid from "@material-ui/core/Grid";
 import OutlinedCard from "./outlined-card";
-import {login} from '../actions/admin'
+import { login } from '../actions/admin'
 import { useHistory } from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const LoginForm = () => {
   const history = useHistory();
   useSelector(state => {
-    if(state.adminReducer.loggedIn){
+    if (state.adminReducer.loggedIn) {
       history.push('/home');
       console.log('login done');
-    }else{
+    } else {
       console.log('login fail');
     }
   });
@@ -23,7 +23,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Grid container justify="center" alignItems="center" style={{marginTop:'70px'}}>
+    <Grid container justify="center" alignItems="center" style={{ marginTop: '70px' }}>
       <Grid item xs={8} sm={6} md={3}>
         <OutlinedCard padding="20px">
           <h2 style={{ marginBottom: "20px" }} className="theme-color">

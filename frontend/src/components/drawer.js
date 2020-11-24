@@ -23,9 +23,9 @@ import StudentTable from "./student-table";
 import ExpenseForm from "./expense-form";
 import ExpenseTable from "./expense-table";
 import teacherForm from "./teacher-form";
-import {logout} from "../actions/admin";
+import { logout } from "../actions/admin";
 import { useHistory } from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ListItemAvatar } from "@material-ui/core";
 import StudentChallan from "./student-challan";
 import Instructions from "./instruction";
@@ -107,7 +107,7 @@ export default function DrawerLeft() {
   const dispatch = useDispatch();
   const history = useHistory();
   useSelector(state => {
-    if(!state.adminReducer.loggedIn){
+    if (!state.adminReducer.loggedIn) {
       history.push('/');
       console.log('logout done');
     }
@@ -150,15 +150,15 @@ export default function DrawerLeft() {
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (
-              <ChevronRightIcon />
-            )}
+                <ChevronRightIcon />
+              )}
           </IconButton>
         </div>
         <Divider />
         <DrawerList />
         <Divider />
         <List>
-          <ListItem 
+          <ListItem
             button
             onClick={() => {
               dispatch(logout());

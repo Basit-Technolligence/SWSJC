@@ -79,15 +79,15 @@ const DrawerList = () => {
         })}
       </List>
       <List>
-      <NavLink to={"/home/Challan"} className={classes.navlink}>
+        <NavLink to={"/home/Challan"} className={classes.navlink}>
           <ListItem button>
             <ListItemIcon>
               <SystemUpdateAltIcon />
             </ListItemIcon>
             <ListItemText primary="Students' Challan" />
           </ListItem>
-          </NavLink>
-        </List>
+        </NavLink>
+      </List>
     </>
   );
 };
