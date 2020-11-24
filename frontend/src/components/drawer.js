@@ -106,12 +106,12 @@ export default function DrawerLeft() {
   };
   const dispatch = useDispatch();
   const history = useHistory();
-  useSelector(state => {
-    if (!state.adminReducer.loggedIn) {
-      history.push('/');
-      console.log('logout done');
-    }
-  });
+  // useSelector(state => {
+  //   if (!state.adminReducer.loggedIn) {
+  //     history.push('/');
+  //     console.log('logout done');
+  //   }
+  // });
   return (
     <div className={classes.root}>
       <CssBaseline />
