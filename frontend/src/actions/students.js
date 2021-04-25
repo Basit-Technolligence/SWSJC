@@ -2,6 +2,7 @@ import axios from "axios";
 import { convertDate } from "./convert-date";
 
 export const addStudent = (student) => {
+  console.log({student})
   student["currentClass"] = student["admissionClass"];
   student.doa = convertDate(student.doa);
   student.dob = convertDate(student.dob);

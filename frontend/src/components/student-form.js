@@ -67,6 +67,15 @@ const StudentForm = (props) => {
         <FormItem label="Date of Birth " name="dob">
           <DatePicker />
         </FormItem>
+        <FormItem label="Contact number" name="number">
+          <Input />
+        </FormItem>
+        <FormItem label="Postal Address" name="address">
+          <Input />
+        </FormItem>
+        <FormItem label="Parent Occupation" name="occupation">
+          <Input />
+        </FormItem>
         <FormItem label="Fee in Rs." name="fee">
           <InputNumber />
         </FormItem>
