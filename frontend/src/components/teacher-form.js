@@ -11,10 +11,10 @@ const TeacherForm = (props) => {
   const dispatch = useDispatch();
   let initialValues = {};
   let action = (s) => dispatch(addTeacher(s));
-  let buttonText = "ADD TEACHER RECORD";
+  let buttonText = "ADD RECORD";
 
-  if (props.location.pathname === "/home/EditTeachers") {
-    buttonText = "UPDATE TEACHER RECORD";
+  if (props.location.pathname === "/home/EditEmployees") {
+    buttonText = "UPDATE RECORD";
     action = (s) => dispatch(updateTeacher(props.teacher[0].id, s));
     initialValues = {
       ["name"]: props.teacher[0].name,
@@ -24,11 +24,16 @@ const TeacherForm = (props) => {
       ["experience"]: props.teacher[0].experience,
       ["doj"]: moment(props.teacher[0].doa),
       ["designation"]: props.teacher[0].designation,
-      ["xcr"]: props.teacher[0].xcr,
+      // ["xcr"]: props.teacher[0].xcr,
       ["cast"]: props.teacher[0].cast,
-      ["grNo"]: props.teacher[0].grNo,
+      // ["grNo"]: props.teacher[0].grNo,
       ["salary"]: props.teacher[0].salary,
       ["comment"]: props.teacher[0].comment,
+      ["bankaccount"]: props.teacher[0]?.bankaccount,
+      ["postaladdress"]: props.teacher[0]?.postaladdress,
+      ["martialstatus"]: props.teacher[0]?.martialstatus,
+      ["eobi"]: props.teacher[0]?.eobi,
+
     };
   }
   console.log("initial", initialValues);
@@ -39,6 +44,8 @@ const TeacherForm = (props) => {
         action={action}
         initialValues={initialValues}
       >
+        <h1>Add Employee's Record</h1>
+
         <FormItem label="Name" name="name">
           <Input />
         </FormItem>
@@ -52,6 +59,14 @@ const TeacherForm = (props) => {
           <Input />
         </FormItem>
 
+        <FormItem label="Martial Status" name="martialstatus">
+          <Select style={{ width: "100%" }}>
+            <Select.Option value="married">Married</Select.Option>
+            <Select.Option value="unmarried">Unmarried</Select.Option>
+            <Select.Option value="divorced">Divorceds</Select.Option>
+          </Select>
+        </FormItem>
+
         <FormItem label="Experience" name="experience">
           <Input />
         </FormItem>
@@ -60,23 +75,36 @@ const TeacherForm = (props) => {
           <Input />
         </FormItem>
 
-        <FormItem label="XCR" name="xcr">
+        <FormItem label="Eobi #" name="eobi">
           <Input />
         </FormItem>
+
+        {/* <FormItem label="XCR" name="xcr">
+          <Input />
+        </FormItem> */}
 
 
         <FormItem label="Cast" name="cast">
           <Input />
         </FormItem>
 
-        <FormItem label="Gr No." name="grNo">
+        {/* <FormItem label="Gr No." name="grNo">
+          <Input />
+        </FormItem> */}
+
+        <FormItem label="Bank Account" name="bankaccount">
           <Input />
         </FormItem>
+
         <FormItem label="Date of Joining" name="doj">
-          <DatePicker />
+          <DatePicker style={{ width: "100%" }} />
         </FormItem>
         <FormItem label="Salary Package" name="salary">
-          <InputNumber />
+          <InputNumber style={{ width: "100%" }} />
+        </FormItem>
+
+        <FormItem label="Postal Address" name="postaladdress">
+          <Input.TextArea />
         </FormItem>
 
         <FormItem label="Comments" name="comment">
@@ -88,7 +116,7 @@ const TeacherForm = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log(state.teacherReducer.oneTeacher);
   return {
     teacher: state.teacherReducer.oneTeacher
   };
