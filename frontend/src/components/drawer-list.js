@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 const DrawerList = () => {
   const classes = useStyles();
-  const listArray = ["Students", "Teachers", "Expenses"];
+  const listArray = ["Students", "Employees", "Expenses"];
   const [openStudents, setOpenStudents] = useState(false);
   const [openTeachers, setOpenTeachers] = useState(false);
   const [openExpenses, setOpenExpenses] = useState(false);
@@ -47,7 +47,7 @@ const DrawerList = () => {
             icon = <AccessibilityNewIcon />;
             open = openStudents;
             setOpen = () => setOpenStudents(!openStudents);
-          } else if (list === "Teachers") {
+          } else if (list === "Employees") {
             icon = <GroupIcon />;
             open = openTeachers;
             setOpen = () => setOpenTeachers(!openTeachers);

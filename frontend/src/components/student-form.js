@@ -39,6 +39,7 @@ const StudentForm = (props) => {
         action={action}
         initialValues={initialValues}
       >
+        <h1>Add Student's Record</h1>
         <FormItem label="Name" name="name">
           <Input />
         </FormItem>
@@ -50,7 +51,7 @@ const StudentForm = (props) => {
         </FormItem>
 
         <FormItem label={classLabel} name={className}>
-          <Select>
+          <Select style={{ width: "100%" }}>
             <Select.Option value="class 1">Class 1</Select.Option>
             <Select.Option value="class 2">Class 2</Select.Option>
             <Select.Option value="class 3">Class 3</Select.Option>
@@ -62,10 +63,10 @@ const StudentForm = (props) => {
           <Input />
         </FormItem>
         <FormItem label="Admisison Date" name="doa">
-          <DatePicker />
+          <DatePicker style={{ width: "100%" }} />
         </FormItem>
         <FormItem label="Date of Birth " name="dob">
-          <DatePicker />
+          <DatePicker style={{ width: "100%" }} />
         </FormItem>
         <FormItem label="Contact number" name="number">
           <Input />
@@ -77,7 +78,7 @@ const StudentForm = (props) => {
           <Input />
         </FormItem>
         <FormItem label="Fee in Rs." name="fee">
-          <InputNumber />
+          <InputNumber style={{ width: "100%" }} />
         </FormItem>
       </RegistrationForm>
     </>

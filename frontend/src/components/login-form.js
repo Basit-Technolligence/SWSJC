@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import Grid from "@material-ui/core/Grid";
@@ -6,20 +6,25 @@ import OutlinedCard from "./outlined-card";
 import { login } from '../actions/admin'
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const LoginForm = () => {
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
   useSelector(state => {
     if (state.adminReducer.loggedIn) {
+      setIsLoading(false);
       history.push('/home');
       console.log('login done');
     } else {
-      console.log('login fail');
+      console.log("login failed")
     }
   });
   const dispatch = useDispatch();
   const onFinish = (values) => {
     dispatch(login(values));
+    setIsLoading(true);
   };
 
   return (
@@ -79,7 +84,8 @@ const LoginForm = () => {
                 style={{ width: "100%" }}
                 className="login-form-button"
               >
-                Log in
+                {isLoading ? "Logging In... " : "Login"}{"  "}
+                {isLoading && <CircularProgress size={15} color="inherit"/>}
               </Button>
             </Form.Item>
           </Form>

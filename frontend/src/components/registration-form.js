@@ -14,18 +14,13 @@ const RegistrationForm = (props) => {
       <Grid item md={7} xs={10}>
         <OutlinedCard padding="40px">
           <Form
-            labelCol={{
-              span: 6,
-            }}
-            wrapperCol={{
-              span: 14,
-            }}
+            layout="vertical"
             initialValues={props.initialValues}
             onFinish={onFinish}
           >
             {props.children}
 
-            <Form.Item label=" " colon={false}>
+            <Form.Item label=" " style={{width: "100%"}} colon={false}>
               <Button
                 type="primary"
                 htmlType="submit"
