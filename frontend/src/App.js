@@ -1,13 +1,23 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import LoginForm from "./components/loginform";
+import DrawerLeft from "./components/drawer";
+import LoginForm from "./components/login-form";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { useSelector} from 'react-redux'
 
 function App() {
+  const isLogged = useSelector(state => state.adminReducer);
   return (
     <div className="App">
-      <LoginForm />
-      <h1>Write your code in App.js</h1>
+      <Switch>
+          <Route exact path = '/' component={LoginForm} />
+          <Route path = '/home' component={DrawerLeft} />
+        {/* <DrawerLeft /> */}
+      {/* <ProfileDrawer /> */}
+      {/* <LoginForm /> */}
+      </Switch>
+     
     </div>
   );
 }
