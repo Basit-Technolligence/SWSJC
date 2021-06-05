@@ -65,7 +65,7 @@ const TeacherTable = (props) => {
   }
   return (
     <MaterialTableComponent
-      title="Teachers"
+      title="Employees"
       data={data}
       allowExtraAction={true}
       columns={columns}

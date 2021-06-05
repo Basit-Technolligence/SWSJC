@@ -1,13 +1,13 @@
-export const adminReducer = (state={
-    loggedIn:false,
-    username:null
+export const adminReducer = (state = {
+    loggedIn: false,
+    username: null
 },
-action)=>{
-    switch(action.type){
+    action) => {
+    switch (action.type) {
         case "LOGOUT_SUCCESS":
-            return {loggedIn:false};
+            return { loggedIn: false };
         case "LOGIN_SUCCESS":
-            return {loggedIn:true,username:action.payload};
+            return { loggedIn: true, username: action.payload };
         default:
             return state;
     }

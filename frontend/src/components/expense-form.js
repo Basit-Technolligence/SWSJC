@@ -9,16 +9,18 @@ const ExpenseForm = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <RegistrationForm buttonText="ADD EXPENSE RECORD" action={(s) => dispatch(addExpense(s))}
-      >
+      <RegistrationForm buttonText="ADD RECORD" action={(s) => dispatch(addExpense(s))}
+ >
+               <h1>Add Expense Record</h1>
+
         <FormItem label="Title" name="title">
           <Input />
         </FormItem>
         <FormItem label="Date of Expense" name="date">
-          <DatePicker />
+          <DatePicker style={{width: "100%"}}/>
         </FormItem>
         <FormItem label="Ammount in Rs" name="amount">
-          <InputNumber />
+          <InputNumber style={{width: "100%"}} />
         </FormItem>
         <FormItem label="Comment" name="comment">
           <Input.TextArea />
