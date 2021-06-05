@@ -9,9 +9,10 @@ const ExpenseForm = () => {
   const dispatch = useDispatch();
   return (
     <>
+    
+    <h1>Add Expense Record</h1>
       <RegistrationForm buttonText="ADD RECORD" action={(s) => dispatch(addExpense(s))}
  >
-               <h1>Add Expense Record</h1>
 
         <FormItem label="Title" name="title">
           <Input />

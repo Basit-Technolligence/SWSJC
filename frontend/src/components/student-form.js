@@ -34,12 +34,12 @@ const StudentForm = (props) => {
   console.log("initial", initialValues);
   return (
     <>
+     <h1>Add Student's Record</h1>
       <RegistrationForm
         buttonText={buttonText}
         action={action}
         initialValues={initialValues}
       >
-        <h1>Add Student's Record</h1>
         <FormItem label="Name" name="name">
           <Input />
         </FormItem>
