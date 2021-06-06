@@ -9,5 +9,5 @@ router.patch("/students/:id", studentController.updateStudent);
 router.delete("/students/:id", studentController.deleteStudent);
 router.post('/getChallan',studentController.exportPDF);
 router.post('/addclassresult',studentController.addClassResult);
-
+router.get("/getStudentResults/:studentId", studentController.getClassResultById);
 module.exports = router;

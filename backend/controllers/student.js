@@ -20,6 +20,17 @@ const addClassResult = async (req, res) => {
     res.send(e);
   }
 }
+
+const getClassResultById = async (req, res) => {
+  try {
+    const response = await db.collection("results").doc(req.params.studentId).get();
+    const data = await response.data();
+    data.id = req.params.id;
+    res.send(data);
+  } catch (e) {
+    res.send(e);
+  }
+}
 const getStudentById = async (req, res) => {
   try {
     const response = await db.collection("students").doc(req.params.id).get();
@@ -79,3 +90,4 @@ exports.updateStudent = updateStudent;
 exports.deleteStudent = deleteStudent;
 exports.exportPDF = exportPDF;
 exports.addClassResult = addClassResult;
+exports.getClassResultById = getClassResultById;
