@@ -11,6 +11,15 @@ const addStudent = async (req, res) => {
   }
 };
 
+const addClassResult = async (req, res) => {
+  try{
+    const classname = req.body.class;
+    const a = await db.collection("results").doc(req.body.studentId).set({[classname]:req.body}, { merge: true });
+    res.send("Data Added");
+  }catch(e){
+    res.send(e);
+  }
+}
 const getStudentById = async (req, res) => {
   try {
     const response = await db.collection("students").doc(req.params.id).get();
@@ -69,3 +78,4 @@ exports.getStudent = getStudent;
 exports.updateStudent = updateStudent;
 exports.deleteStudent = deleteStudent;
 exports.exportPDF = exportPDF;
+exports.addClassResult = addClassResult;
